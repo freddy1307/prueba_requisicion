@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+            <record id="view_tree_quotation_gi" model="ir.ui.view">
+                <field name="name">Quotation.gi.tree</field>
+                <field name="model">gi.quotation</field>
+                <field name="arch" type="xml">
+                    <tree string="Tree">
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="partner"/>
+                    </tree>
+                </field>
+            </record>
+            <record id="view_form_quotation_gi" model="ir.ui.view">
+                <field name="name">Quotation.gi.form</field>
+                <field name="model">gi.quotation</field>
+                <field name="arch" type="xml">
+                    <form string="Quotation">
+                        <sheet>
+                            <div class="oe_title">
+                                <h1>
+                                <field name="name" readonly="1"/>
+                                </h1>
+                        </div>
+                            <group>
+                                <group>
+                                    <field name="partner"/>
+                                </group>
+                                <group>
+                                    <field name="date"/>
+                                    <field name="payment_term_id"/>
+                                </group>
+                            </group>
+                            <notebook>
+                            <page string="Lines">
+                                <field name="line_ids" widget="one2many_list">
+                                   <tree editable="bottom">
+                                       <field name = "number" />
+                                       <field name = "product_id" />
+                                       <field name = "qty" />
+                                       <field name = "price_list"/>
+                                       <field name = "total_line" readonly="1"/>
+                                   </tree>
+                                </field>
+                            </page>
+                            </notebook>
+                        </sheet>
+
+                    </form>
+                </field>
+            </record>
+
+             <record id="action_quotation" model="ir.actions.act_window">
+                <field name="name">Quotation</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">gi.quotation</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+
+
+        <menuitem parent="sale.sale_order_menu" action="action_quotation"
+                  id="menu_quotation_gi" sequence="1"
+           />
+
+
+
+
+
+    </data>
+</odoo>
