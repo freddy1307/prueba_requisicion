@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "MODULOPRUEBA",
+    'name': "Requisicion de producto",
 
     'summary': """
-        Modulo de prueba para plan de induccion""",
+        Modulo de prueba para odoo, asemejanza de una requisicion de productos.""",
 
     'description': """
 
